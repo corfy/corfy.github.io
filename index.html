@@ -20,7 +20,7 @@
 }
 
 :root {
-  --background: #000000;
+  --background: #161e39;
   --blue: #a2c6ff;
   --red: #b96868;
 }
@@ -86,8 +86,8 @@ body {
 }
 
 .entryText {
-  font-size: 20px;
-  color: #333;
+  font-size: 25px;
+  color: rgb(165, 165, 165);
 }
 
 /* #spin {
@@ -165,7 +165,7 @@ body {
 }
 
 .entryItem .entryText:focus {
-  border: 2px solid black;
+  border: 2px solid rgb(62, 62, 62);
 }
 
 .entryItem .remove, #addEntry {
@@ -358,67 +358,74 @@ body {
 </style>
 </head>
 <body>
-<div class="hidden" id="wheelPage">
-  <span id="wheelNameDisplay">Wheel name</span>
-  <span id="landingEntry">Press 'Spin'</span>
-
-  <div id="wheelContainer">
-  </div>
-
-  <button id="spin">Spin</button>
- 
-</div>
-
-<div class="hidden" id="createPage">
-  <span class="title">Create wheel</span>
+  <div class="hidden" id="wheelPage">
+    <span id="wheelNameDisplay">Wheel name</span>
+    <span id="landingEntry">Press 'Spin'</span>
   
-  <div class="settings">
-    <input placeholder="Wheel name" id="wheelName" />
-    
-<!--     <br>
-    <span>Options</span> -->
-    <hr>
-    
-    <div id="entryList">
+    <div id="wheelContainer">
     </div>
-    
-    <button id="addEntry">+</button>
-    
-    <hr>
+  
+    <button id="spin">Spin</button>
+    <button id="edit">Edit wheel</button>
   </div>
   
-  <button id="createWheelButton">Create</button>
-</div>
-
-
-
-<input id="menuCheckbox" type="checkbox" />
-<div class="menu">
-  <h3>Wheels</h3>
-  <ul id="wheelsList">
-  </ul>
-</div>
-
-<template id="wheelEntryTemplate">
-  <li class="wheelEntryContainer">
-    <span class="wheelEntry"></span>
-  </li>
-</template>
-
-<template id="entryItemTemplate">
-  <div class="entryItem">
-    <input placeholder="Type something" class="entryText" />
-    <button class="remove">✖</button>
-  </div>
-</template>
-
-<template id="errorTemplate">
-  <div class="errorPopupContainer">
-    <div class="errorPopup">
-      <span class="msg">Error message here</span>
-      <span class="close">x</span>
+  <div class="hidden" id="createPage">
+    <span class="title">Create wheel</span>
+    
+    <div class="settings">
+      <input placeholder="Wheel name" id="wheelName" />
+      
+  <!--     <br>
+      <span>Options</span> -->
+      <hr>
+      
+      <div id="entryList">
+      </div>
+      
+      <button id="addEntry">+</button>
+      
+      <hr>
     </div>
+    
+    <button id="createWheelButton">Create</button>
   </div>
+  
+  <label for="menuCheckbox" class="openMenu">
+    <div class="bars">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </label>
+  
+  <input id="menuCheckbox" type="checkbox" />
+  <div class="menu">
+    <h3>Wheels</h3>
+    <ul id="wheelsList">
+    </ul>
+  </div>
+  
+  <template id="wheelEntryTemplate">
+    <li class="wheelEntryContainer">
+      <span class="wheelEntry"></span>
+    </li>
+  </template>
+  
+  <template id="entryItemTemplate">
+    <div class="entryItem">
+      <input placeholder="Type something" class="entryText" />
+      <button class="remove">✖</button>
+    </div>
+  </template>
+  
+  <template id="errorTemplate">
+    <div class="errorPopupContainer">
+      <div class="errorPopup">
+        <span class="msg">Error message here</span>
+        <span class="close">x</span>
+      </div>
+    </div>
+  </template>
 </template>
 </body>
 <script type="text/javascript">
@@ -703,6 +710,7 @@ function Wheel(entries, colorScheme) {
 
     var text = createElement("text", this.group);
     text.classList.add("entryText");
+
     text.setAttribute("alignment-baseline", "middle");
     // text.setAttribute("x", this.size / 2 - radius * 0.95);
     // text.setAttribute("y", this.size / 2);
